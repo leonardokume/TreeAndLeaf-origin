@@ -17,7 +17,7 @@ Source: Castro, 2015 (http://dx.doi.org/10.1038/ng.3458)
 # Install TreeAndLeaf from github
 devtools::install_github("leonardokume/TreeAndLeaf")
 
-# If you don't have devtools instaleed
+# If you don't have devtools installed
 install.packages("devtools")
 ```
 
