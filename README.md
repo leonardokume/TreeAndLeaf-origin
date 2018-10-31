@@ -134,7 +134,7 @@ At this stage the image produced needs small ajustments to solve the residual ed
 You can just click and drag a node to ajust it while the relaxation algorithm is still running.
 ```
 
-9 - After this first relaxation, you can make manual adjustments to the layout and then relax again to condense the nodes
+9 - After the manueal adjustments, you can relax again with different parameters to condense the nodes
 
 ```{r, eval=FALSE}
 relax(rdp, p1 = 20, p3 = 30, p5 = 10, p8 = 30)
