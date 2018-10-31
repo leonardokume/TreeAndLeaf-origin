@@ -13,13 +13,13 @@ Source: Castro, 2015 (http://dx.doi.org/10.1038/ng.3458)
 
 
 ## Installation
+Install devtools, if you already have it, then skip this step
 ```r
-# Install devtools, if you already have it, then skip this step
 install.packages("devtools")
 ```
 
+Install TreeAndLeaf from github
 ```r
-# Install TreeAndLeaf from github
 devtools::install_github("leonardokume/TreeAndLeaf")
 ```
 
