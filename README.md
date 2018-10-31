@@ -17,7 +17,7 @@ library(RedeR)
 library(TreeAndLeaf)
 ```
 
-2 - Clusterize the data from the dataset "USArrests" and transform it in an igraph object
+2 - Clusterize the data from the dataset "USArrests" and transform it into an igraph object
 
 ```{r, eval=FALSE}
 hc <- hclust(dist(USArrests), "ave")
