@@ -48,6 +48,7 @@ V(gg$g)$nodeAlias[is.na(idx)]<-""
 ```r
 # Node font
 V(gg$g)$nodeFontSize<-30
+V(gg$g)$nodeFontColor<-"red"
 V(gg$g)$nodeFontSize[V(gg$g)$nodeAlias==""]<- 1
 
 # Node color
@@ -124,9 +125,9 @@ layout <- treeAndLeaf(gg$g, size = "small")
 addGraph(rdp, gg$g, layout = layout, zoom = 20)
 relax(rdp, p1 = 50, p2 = 100, p3 = 50, p4 = 100, p5 = 100, p8 = 40)
 ```
-
-<img height="500" src="man/figures/partial taf.jpg">
-
+<p align="center">
+<img height="500" src="man/figures/quickstartpartial.png">
+</p>
 At this stage the image produced needs small ajustments to solve the residual edge crossings. You can just click and drag a node to ajust it while the relaxation algorithm is still running.
 
 9 - After this first relaxation, you can make manual adjustments to the layout and then relax again to condense the nodes
@@ -134,6 +135,6 @@ At this stage the image produced needs small ajustments to solve the residual ed
 ```{r, eval=FALSE}
 relax(rdp, p1 = 20, p3 = 30, p5 = 10, p8 = 30)
 ```
-
+<p align="center">
 <img height="500" src="man/figures/quickstartfinal.png">
-
+</p>
