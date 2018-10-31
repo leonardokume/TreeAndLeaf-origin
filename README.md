@@ -11,7 +11,7 @@ devtools::install_github("leonardokume/TreeAndLeaf")
 
 1 - Call the necessary libraries
 
-```{r, eval=FALSE}
+```r
 library(igraph)
 library(RedeR)
 library(TreeAndLeaf)
@@ -19,14 +19,14 @@ library(TreeAndLeaf)
 
 2 - Clusterize the data from the dataset "USArrests" and transform it into an igraph object
 
-```{r, eval=FALSE}
+```r
 hc <- hclust(dist(USArrests), "ave")
 gg <- hclust2igraph(hc)
 ```
 
 3 - Set the aliases for the nodes
 
-```{r, eval=FALSE}
+```r
 idx <- match(V(gg$g)$name, rownames(USArrests))
 V(gg$g)$nodeAlias <- V(gg$g)$name
 V(gg$g)$nodeAlias[is.na(idx)]<-""
@@ -34,7 +34,7 @@ V(gg$g)$nodeAlias[is.na(idx)]<-""
 
 4 - Here we make some adjustments to the nodes like fonts, color and sizes
 
-```{r, eval=FALSE}
+```r
 #-- node font
 V(gg$g)$nodeFontSize<-25
 V(gg$g)$nodeFontSize[V(gg$g)$nodeAlias==""]<- 1
@@ -56,7 +56,7 @@ E(gg$g)$edgeColor<-"black"
 
 5 - For the colors we use the RColorBrewer library
 
-```{r, eval=FALSE}
+```r
 #-- get the murder data and separate it in six quantiles
 murder <- USArrests$Murder
 names(murder) <- rownames(USArrests)
@@ -78,7 +78,7 @@ V(gg$g)$nodeColor[idx] <- col
 ```
 
 6 -  Create the legends to be added to RedeR
-```{r, eval=FALSE}
+```r
 #-- colors
 qnts <- round(qnts)
 col_leg <- NULL
@@ -94,7 +94,7 @@ leg <- seq(min, max, length.out = 4)
 
 7 - Call the RedeR interface and add the legends
 
-```{r, eval=FALSE}
+```r
 rdp <- RedPort()
 calld(rdp)
 
@@ -108,7 +108,7 @@ addLegend.size(rdp, leg, type = "node", title = "Urban Population Size",
 
 8 - Make the TreeAndLeaf layout and use the relaxation algorithm from RedeR
 
-```{r, eval=FALSE}
+```r
 layout <- treeAndLeaf(gg$g, size = "small")
 addGraph(rdp, gg$g, layout = layout, zoom = 20)
 relax(rdp, p1 = 50, p2 = 100, p3 = 50, p4 = 100, p5 = 100, p8 = 40)
