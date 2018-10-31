@@ -136,7 +136,7 @@ You can just click and drag a node to ajust it while the relaxation algorithm is
 
 9 - After the manual adjustments, you can relax a second time with different parameters to condense the nodes
 
-```{r, eval=FALSE}
+```r
 relax(rdp, p1 = 20, p3 = 30, p5 = 10, p8 = 30)
 ```
 <p align="center">
