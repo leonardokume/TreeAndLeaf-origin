@@ -126,7 +126,7 @@ addGraph(rdp, gg$g, layout = layout, zoom = 20)
 relax(rdp, p1 = 50, p2 = 100, p3 = 50, p4 = 100, p5 = 100, p8 = 40)
 ```
 <p align="center">
-<img height="500" src="man/figures/quickstartpartial.png">
+<img height="500" src="man/figures/quickstart1.png">
 </p>
 At this stage the image produced needs small ajustments to solve the residual edge crossings. You can just click and drag a node to ajust it while the relaxation algorithm is still running.
 
