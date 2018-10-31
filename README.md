@@ -14,7 +14,7 @@ Source: Castro, 2015 (http://dx.doi.org/10.1038/ng.3458)
 
 ## Installation
 ```r
-# Install devtools from github
+# Install TreeAndLeaf from github
 devtools::install_github("leonardokume/TreeAndLeaf")
 ```
 
