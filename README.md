@@ -46,21 +46,21 @@ V(gg$g)$nodeAlias[is.na(idx)]<-""
 4 - Here we make some adjustments to the nodes like fonts, color and sizes
 
 ```r
-#-- node font
-V(gg$g)$nodeFontSize<-25
+# Node font
+V(gg$g)$nodeFontSize<-30
 V(gg$g)$nodeFontSize[V(gg$g)$nodeAlias==""]<- 1
 
-#-- node color
+# Node color
 V(gg$g)$nodeColor<-"black"
 
-#-- node size
+#Node size
 sz <- USArrests$UrbanPop
 names(sz) <- rownames(USArrests)
 idx <- match(names(sz), V(gg$g)$name)
 V(gg$g)$nodeSize[idx] <- sz
 V(gg$g)$nodeSize[V(gg$g)$nodeAlias==""] <- 1
 
-#-- adjust the edge style
+# Adjust the edge style
 E(gg$g)$edgeWidth <- 18
 E(gg$g)$edgeColor<-"black"
 ```
@@ -68,12 +68,12 @@ E(gg$g)$edgeColor<-"black"
 5 - For the colors we use the RColorBrewer library
 
 ```r
-#-- get the murder data and separate it in six quantiles
+# Get the murder data and separate it in six quantiles
 murder <- USArrests$Murder
 names(murder) <- rownames(USArrests)
 qnts <- quantile(murder, seq(0, 1, 0.2))
 
-#-- use the RColorBrewer library to make a pallete using the quantiles
+# Use the RColorBrewer library to make a pallete using the quantiles
 library(RColorBrewer)
 pal <- brewer.pal(5, "Reds")
 col <- murder
@@ -83,21 +83,21 @@ col[murder >= qnts[3] & murder < qnts[4]] <- pal[3]
 col[murder >= qnts[4] & murder < qnts[5]] <- pal[4]
 col[murder >= qnts[5] & murder <= qnts[6]] <- pal[5]
 
-#-- match the color pallete to the correct states
+# Match the color pallete to the correct states
 idx <- match(names(col), V(gg$g)$nodeAlias)
 V(gg$g)$nodeColor[idx] <- col
 ```
 
 6 -  Create the legends to be added to RedeR
 ```r
-#-- colors
+# Colors
 qnts <- round(qnts)
 col_leg <- NULL
 for(i in 2:(length(qnts)) - 1) {
     col_leg[i] <- paste(qnts[i], " - ", qnts[i+1])
 }
 
-#-- sizes
+# Sizes
 min <- signif(min(sz), digits = 0)
 max <- signif(max(sz), digits = 0)
 leg <- seq(min, max, length.out = 4)
@@ -109,7 +109,7 @@ leg <- seq(min, max, length.out = 4)
 rdp <- RedPort()
 calld(rdp)
 
-#-- add the legends
+# Add the legends
 addLegend.color(rdp, pal, labvec = col_leg, type = "node",
                 title = "Murder Rate", position = "right")
 
@@ -125,9 +125,15 @@ addGraph(rdp, gg$g, layout = layout, zoom = 20)
 relax(rdp, p1 = 50, p2 = 100, p3 = 50, p4 = 100, p5 = 100, p8 = 40)
 ```
 
-9 - After this first relaxation, you can make manual adjustments to the layout and the relax again to condense the nodes
+<img height="500" src="man/figures/partial taf.png">
+
+At this stage the image produced needs small ajustments to solve the residual edge crossings. You can just click and drag a node to ajust it while the relaxation algorithm is still running.
+
+9 - After this first relaxation, you can make manual adjustments to the layout and then relax again to condense the nodes
 
 ```{r, eval=FALSE}
 relax(rdp, p1 = 20, p3 = 30, p5 = 10, p8 = 30)
 ```
+
+<img height="500" src="man/figures/usarrest taf.png">
 
