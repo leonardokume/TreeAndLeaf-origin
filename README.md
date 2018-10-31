@@ -135,5 +135,5 @@ At this stage the image produced needs small ajustments to solve the residual ed
 relax(rdp, p1 = 20, p3 = 30, p5 = 10, p8 = 30)
 ```
 
-<img height="500" src="man/figures/usarrest taf.png">
+<img height="500" src="man/figures/quickstartfinal.png">
 
