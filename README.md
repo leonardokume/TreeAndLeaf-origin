@@ -1,4 +1,4 @@
-# TreeAndLeaf 
+# treeAndLeaf 
 A R package for reorganizing dendrograms and adding additional layers of information.
 
 <p align="center">
