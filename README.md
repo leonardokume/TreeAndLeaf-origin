@@ -20,7 +20,7 @@ install.packages("devtools")
 
 Install TreeAndLeaf from github
 ```r
-devtools::install_github("leonardokume/TreeAndLeaf")
+devtools::install_github("leonardokume/treeAndLeaf")
 ```
 
 ## Quick Start
@@ -30,7 +30,7 @@ devtools::install_github("leonardokume/TreeAndLeaf")
 ```r
 library(igraph)
 library(RedeR)
-library(TreeAndLeaf)
+library(treeAndLeaf)
 ```
 
 2 - Clusterize the data from the dataset "USArrests" and transform it into an igraph object
