@@ -1,3 +1,19 @@
+#' Convert hclust to an igraph
+#'
+#' Function for converting a hclust object to an igraph
+#'
+#' @param hc a hclust object.
+#'
+#' @return A igraph object.
+#'
+#' @seealso \code{\link[stats:hclust]{hclust}},
+#' \code{\link[igraph:igraph-package]{igraph}}
+#'
+#' @examples
+#' gg <- hclust2igraph(hc)
+#'
+#' @export
+
 hclust2igraph<-function(hc){
   if(class(hc)!="hclust")stop("'hc' should be an 'hclust' object!")
   if(is.null(hc$labels))hc$labels=as.character(sort(hc$order))

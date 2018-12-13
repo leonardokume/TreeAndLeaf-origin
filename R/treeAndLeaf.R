@@ -1,14 +1,30 @@
-#' Creates the layout for the TreeAndLeaf.
+#' Initial layout creation for the TreeAndLeaf
 #'
-#' @param gg An igraph object.
-#' @param zoom An integer.
-#' @return The layout in the form of a matrix.
+#' Returns a matrix of positions to be relaxed by the force based algorithm
+#' implemented in the RedeR package
+#'
+#' @param gg an hclust or igraph object, containing the dendrogram to
+#' be reorganized
+#' @param size a string that describes the size of the dendrogram. "small" = less
+#' than 100 nodes; "medium" = less than 500 nodes; "large" = 500+ nodes.
+#' This is just a reference point, use the size that gives the best results.
+#'
+#' @return A matrix of the nodes positions
+#'
+#' @seealso \code{\link[RedeR:addGraph]{addGraph}}
+#'
 #' @examples
-#' treeAndLeaf(gg)
+#' hc <- hclust(dist(USArrests), "ave")
+#' layout <- treeAndLeaf(hc)
+#'
+#' @export
+
 
 treeAndLeaf <- function(gg, size = "small"){
   if(class(gg)=="hclust"){
     gg <- hclust2igraph(gg)
+    gg <- gg$g
+    print("hey")
   }
 
   #-- Find root and get number of leafs
