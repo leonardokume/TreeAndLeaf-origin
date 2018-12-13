@@ -1,4 +1,4 @@
-Package: treeAndLeaf
+Package: TreeAndLeaf
 Type: Package
 Title: Dendrogram reorganization in order to show multiple layers of information
 Version: 0.1.0
