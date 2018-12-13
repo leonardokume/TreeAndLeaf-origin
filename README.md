@@ -1,4 +1,4 @@
-# treeAndLeaf 
+# TreeAndLeaf 
 A R package for reorganizing dendrograms and adding additional layers of information.
 
 <p align="center">
@@ -20,7 +20,7 @@ install.packages("devtools")
 
 Install TreeAndLeaf from github
 ```r
-devtools::install_github("leonardokume/treeAndLeaf")
+devtools::install_github("leonardokume/TreeAndLeaf")
 ```
 
 ## Quick Start
@@ -30,7 +30,7 @@ devtools::install_github("leonardokume/treeAndLeaf")
 ```r
 library(igraph)
 library(RedeR)
-library(treeAndLeaf)
+library(TreeAndLeaf)
 ```
 
 2 - Clusterize the data from the dataset "USArrests" and transform it into an igraph object
